@@ -20,7 +20,10 @@ export function App() {
 
   return (
     <div className="App">
-      <Selector setSelectorValueFunction={setSelectorValue} />
+      <Selector
+        setSelectorValueFunction={setSelectorValue}
+        setIsSendDataFunction={setIsSendData}
+      />
 
       <Input
         givenValueInput={givenValue}
@@ -44,9 +47,13 @@ export function App() {
 ///////////////////////////////////////////////////////////////////////// ///////////////////////////////////////////////////
 interface PropsSelector {
   setSelectorValueFunction: React.Dispatch<React.SetStateAction<string>>;
+  setIsSendDataFunction: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const Selector: React.FC<PropsSelector> = ({ setSelectorValueFunction }) => {
+const Selector: React.FC<PropsSelector> = ({
+  setSelectorValueFunction,
+  setIsSendDataFunction,
+}) => {
   return (
     <div
       style={{
@@ -60,7 +67,10 @@ const Selector: React.FC<PropsSelector> = ({ setSelectorValueFunction }) => {
       <select
         name="type"
         id="type"
-        onChange={(option) => setSelectorValueFunction(option.target.value)}
+        onChange={(option) => {
+          setSelectorValueFunction(option.target.value);
+          setIsSendDataFunction(false);
+        }}
       >
         <option id="user" value={"user"}>
           user
@@ -154,12 +164,12 @@ const Information: React.FC<PropsInformation> = ({
     selectorValueInformation === "user" ? (
       <div>
         <div>Full Name: {userDataValue?.name}</div>
-        <div>Count Of Repos: {userDataValue?.repos}</div>
+        <div>Count Of Repositories: {userDataValue?.repos}</div>
       </div>
     ) : (
       <div>
         <div>Full Name: {repoDataValue?.name}</div>
-        <div>Count Of Repos: {repoDataValue?.stars}</div>
+        <div>Count Of Stars: {repoDataValue?.stars}</div>
       </div>
     )
   ) : (
