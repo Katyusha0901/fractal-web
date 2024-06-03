@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.js": "/static/js/main.056666e8.js",
-    "index.html": "/index.html",
-    "main.056666e8.js.map": "/static/js/main.056666e8.js.map"
+    "main.js": "/fractal-web/static/js/main.056666e8.js",
+    "index.html": "/fractal-web/index.html",
+    "main.056666e8.js.map": "/fractal-web/static/js/main.056666e8.js.map"
   },
   "entrypoints": [
     "static/js/main.056666e8.js"
