@@ -1,5 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 
 export function App() {
-  return <div className="App"></div>;
+  const [givenValue, setGivenValue] = useState<string>("");
+  return (
+    <div className="App">
+      <input onChange={(data) => setGivenValue(data.target.value)}></input>
+      <button>Send</button>
+    </div>
+  );
 }
