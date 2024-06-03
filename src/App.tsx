@@ -19,8 +19,6 @@ export function App() {
         setGivenValueFunction={setGivenValue}
         setUserDataFunction={setUserData}
       />
-
-      <div></div>
     </div>
   );
 }
